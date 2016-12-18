@@ -14,8 +14,8 @@ export default class Comment extends Component {
     getBody() {
         return (
             <section>
-                {this.props.comment.text}
-                {this.props.comment.user}
+                <p><i>{this.props.comment.text}</i></p>
+                <p><b>{this.props.comment.user}</b></p>
             </section>
         )   
     }

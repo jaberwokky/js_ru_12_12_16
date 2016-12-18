@@ -25,12 +25,19 @@ export default class Article extends Component {
 
     getBody() {
         if (!this.state.isOpen) return null    
-        return (
-            <section>
-                {this.props.article.text}
-                <Button/> 
-                <CommentList comments = {this.props.article.comments}/>
-            </section>
-        )
+        if (!("comments" in this.props.article)) 
+            return (
+                <section>
+                    {this.props.article.text}
+                </section>
+            )
+        if ("comments" in this.props.article)
+            return (
+                <section>
+                    {this.props.article.text}
+                    <Button/> 
+                    <CommentList comments = {this.props.article.comments}/>
+                </section>
+            )
     }
 }
